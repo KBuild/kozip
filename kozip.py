@@ -29,6 +29,8 @@ def unzipping(z, nowcode="cp949"):
 
 	z.close()
 
+if sys.argv[1].find('/') < 0:
+	sys.argv[1] = './' + sys.argv[1]
 dlist = os.listdir("/".join(sys.argv[1].split("/")[:-1]))
 
 for fname in dlist:
