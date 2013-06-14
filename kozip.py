@@ -15,9 +15,9 @@ def unzipping(z, nowcode="cp949"):
 				zstr = zfile.read()
 				zstr = unicode(zstr , nowcode, errors="ignore").encode('utf-8', errors="ignore")
 				zstr = zstr.replace("\00", "").replace("\x0A", "\n").replace("\x0D","\r")
-				if f.startswith('/') is not True:
-					f = "/"+f
 				f = f.encode('utf-8')
+				if os.path.exists(f) is not True:
+					f = './' + f
 				fp = open(f, 'w')
 				fp.write(zstr)
 				fp.close()
